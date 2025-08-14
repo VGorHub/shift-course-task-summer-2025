@@ -13,7 +13,26 @@ import org.apache.logging.log4j.Logger;
 public class ParamsParser {
     private static Logger logger = LogManager.getLogger(ParamsParser.class);
 
-    public static Params parse(String[] args){
+    public static Params parse(String[] args) throws ParseException{
+        Options options = initiolizateOptions();
+
+        CommandLineParser parser = new DefaultParser();
+        HelpFormatter formatter = new HelpFormatter();
+        CommandLine cmd = null;
+
+        try {
+            cmd = parser.parse(options,args);
+        } catch (ParseException e) {
+            formatter.printHelp("java [options] file1 file2 ...", options);
+            throw e;
+        }
+
+
+        Params params = new Params("o");
+        return params;
+    }
+
+    private static Options initiolizateOptions(){
         Options options = new Options();
 
         Option outputDir = Option.builder()
@@ -24,20 +43,6 @@ public class ParamsParser {
                 .build();
         options.addOption(outputDir);
 
-        CommandLineParser parser = new DefaultParser();
-        HelpFormatter formatter = new HelpFormatter();
-        CommandLine cmd = null;
-
-        try {
-            cmd = parser.parse(options,args);
-        } catch (ParseException e) {
-            logger.error(String.format("Ошибка Парсинга Аргументов: {}",e));
-            formatter.printHelp("utility-name", options);
-            System.exit(1);
-        }
-
-        Params params = new Params();
-        params.setOutputDir(cmd.getOptionValue("o"));
-        return null;
+        return options;
     }
 }

@@ -1,8 +1,4 @@
 package ru.gigastack;
 
-import lombok.Setter;
-
-@Setter
-public class Params {
-    private String outputDir;
+public record Params(String outputDir) {
 }
