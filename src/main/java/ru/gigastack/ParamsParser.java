@@ -11,14 +11,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ParamsParser {
-    private static Logger logger = LogManager.getLogger(ParamsParser.class);
 
     public static Params parse(String[] args) throws ParseException{
-        Options options = initiolizateOptions();
-
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd = null;
+
+        Options options = initiolizateOptions();
 
         try {
             cmd = parser.parse(options,args);
@@ -27,8 +26,18 @@ public class ParamsParser {
             throw e;
         }
 
+        Params.Statistic statistic = Params.Statistic.SHORT;
+        if (cmd.hasOption("f")){
+            statistic = Params.Statistic.FULL;
+        }
 
-        Params params = new Params("o");
+        Params params = new Params(
+                cmd.getOptionValue("o"),
+                cmd.getOptionValue("p"),
+                cmd.hasOption("a"),
+                statistic,
+                cmd.getArgList()
+        );
         return params;
     }
 
@@ -42,6 +51,39 @@ public class ParamsParser {
                 .desc("Путь до результута")
                 .build();
         options.addOption(outputDir);
+
+        Option prefix = Option.builder()
+                .option("p")
+                .longOpt("prefix")
+                .hasArg(true)
+                .desc("Префикс выходных файлов")
+                .build();
+        options.addOption(prefix);
+
+        Option append = Option.builder()
+                .option("a")
+                .longOpt("append")
+                .hasArg(false)
+                .desc("Режим добавления в конец файла")
+                .build();
+        options.addOption(append);
+
+        Option shortStatistic = Option.builder()
+                .option("s")
+                .longOpt("short")
+                .hasArg(false)
+                .desc("Краткая Стистика")
+                .build();
+        options.addOption(shortStatistic);
+
+        Option fullStatistic = Option.builder()
+                .option("f")
+                .longOpt("full")
+                .hasArg(false)
+                .desc("Полная Статистика")
+                .build();
+        options.addOption(fullStatistic);
+
 
         return options;
     }
