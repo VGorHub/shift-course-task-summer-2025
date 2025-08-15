@@ -1,22 +1,24 @@
 package ru.gigastack;
 
+import org.apache.commons.cli.ParseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.gigastack.services.AppFacade;
-import ru.gigastack.services.impl.AppFacadeImpl;
 
 
 public class Main {
-    private static final Logger logger = LogManager.getLogger(Main.class);
+    static final Logger logger = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
         try {
-            AppFacade app = new AppFacadeImpl();
-            app.run(args);
+            Params params = null;
+            try {
+                params = ParamParser.parseArgs(args);
+            }catch (ParseException e){
+                System.exit(2);
+            }
+            Busines.run(params);
         }catch (Exception e){
-            logger.error(String.format("Произошла непредвиденная ошибка ошибка: {}",e));
-            System.exit(500);
+            logger.error("Произошла не предвиденная ошибка: {}", e.getMessage());
+            System.exit(3);
         }
-
-
     }
 }

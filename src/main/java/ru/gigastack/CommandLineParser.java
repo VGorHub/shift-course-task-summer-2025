@@ -1,47 +1,35 @@
 package ru.gigastack;
 
 import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-public class ParamsParser {
+import static ru.gigastack.Main.logger;
 
-    public static Params parse(String[] args) throws ParseException{
-        CommandLineParser parser = new DefaultParser();
-        HelpFormatter formatter = new HelpFormatter();
-        CommandLine cmd = null;
+public class CommandLineParser {
 
-        Options options = initiolizateOptions();
+    public static CommandLine parse(String[] args) throws ParseException{
+
+        Options options = initializeOptions();
 
         try {
-            cmd = parser.parse(options,args);
+            CommandLine cmd = new DefaultParser().parse(options,args);
+            if (cmd.getArgList().size() < 2){
+                throw new ParseException("Не достаточно параметров");
+            }
+            return cmd;
         } catch (ParseException e) {
-            formatter.printHelp("java [options] file1 file2 ...", options);
+            logger.error("Произошла ошибка парсинга аргументов: {}", e.getMessage());
+            new HelpFormatter().printHelp("java [options] file1 file2 ...", options);
             throw e;
         }
 
-        Params.Statistic statistic = Params.Statistic.SHORT;
-        if (cmd.hasOption("f")){
-            statistic = Params.Statistic.FULL;
-        }
-
-        Params params = new Params(
-                cmd.getOptionValue("o"),
-                cmd.getOptionValue("p"),
-                cmd.hasOption("a"),
-                statistic,
-                cmd.getArgList()
-        );
-        return params;
     }
 
-    private static Options initiolizateOptions(){
+    private static Options initializeOptions(){
         Options options = new Options();
 
         Option outputDir = Option.builder()
