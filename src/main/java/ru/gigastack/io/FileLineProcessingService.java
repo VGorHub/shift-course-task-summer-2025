@@ -3,7 +3,7 @@ package ru.gigastack.io;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.gigastack.exception.BusinessException;
-import ru.gigastack.exception.BusinessExceptionErrorCode;
+import ru.gigastack.enums.BusinessExceptionErrorCode;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +16,8 @@ import java.nio.file.Path;
 public class FileLineProcessingService {
     private final static Logger logger = LogManager.getLogger(FileLineProcessingService.class);
 
-    public void readFileLines(Path path) throws BusinessException {
-        int lineNumber = 0;
+    public void startFileLinesProcess(Path path) throws BusinessException {
+        int lineNumber = 1;
 
         try(InputStream is = Files.newInputStream(path);
             InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
