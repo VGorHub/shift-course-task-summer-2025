@@ -1,4 +1,4 @@
-package ru.gigastack;
+package ru.gigastack.cli;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
@@ -6,10 +6,11 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-
-import static ru.gigastack.Main.logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CommandLineParser {
+    private final static Logger logger = LogManager.getLogger(CommandLineParser.class);
 
     public static CommandLine parse(String[] args) throws ParseException{
 

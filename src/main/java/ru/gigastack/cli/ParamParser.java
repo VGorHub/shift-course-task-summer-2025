@@ -1,4 +1,4 @@
-package ru.gigastack;
+package ru.gigastack.cli;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.ParseException;

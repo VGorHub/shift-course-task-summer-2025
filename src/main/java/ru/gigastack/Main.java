@@ -3,6 +3,8 @@ package ru.gigastack;
 import org.apache.commons.cli.ParseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.gigastack.cli.ParamParser;
+import ru.gigastack.cli.Params;
 
 
 public class Main {
@@ -15,7 +17,7 @@ public class Main {
             }catch (ParseException e){
                 System.exit(2);
             }
-            Busines.run(params);
+            ApplicationRunner.run(params);
         }catch (Exception e){
             logger.error("Произошла не предвиденная ошибка: {}", e.getMessage());
             System.exit(3);

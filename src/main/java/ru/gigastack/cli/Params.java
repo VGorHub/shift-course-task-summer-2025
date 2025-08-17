@@ -1,4 +1,4 @@
-package ru.gigastack;
+package ru.gigastack.cli;
 
 import java.util.List;
 
