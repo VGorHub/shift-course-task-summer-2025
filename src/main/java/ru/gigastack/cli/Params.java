@@ -1,5 +1,6 @@
 package ru.gigastack.cli;
 
+import java.nio.file.Path;
 import java.util.List;
 
 public record Params(
@@ -7,7 +8,7 @@ public record Params(
         String prefix,
         boolean append,
         Statistic statistic,
-        List<String> inputFiles
+        List<Path> inputFiles
 ) {
     public enum Statistic{
         SHORT,
