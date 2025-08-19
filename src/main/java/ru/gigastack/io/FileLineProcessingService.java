@@ -35,7 +35,7 @@ public class FileLineProcessingService {
             }
         } catch (IOException e) {
             throw new BusinessException(BusinessExceptionErrorCode.FILE_READ_ERROR,
-                    String.format("Ошибка при чтении файла: %s",path),
+                    String.format("Ошибка при обработке файла: %s",path),
                     e);
         } catch (BusinessException e){
             throw e;
