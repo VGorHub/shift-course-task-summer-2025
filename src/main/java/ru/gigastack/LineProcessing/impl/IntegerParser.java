@@ -6,9 +6,9 @@ import java.util.Optional;
 
 public class IntegerParser implements TypeParser {
     @Override
-    public Optional<Object> tryParse(String line) {
+    public Optional<Long> tryParse(String line) {
         try {
-            return Optional.of(Integer.parseInt(line));
+            return Optional.of(Long.parseLong(line));
         } catch (NumberFormatException e) {
             return Optional.empty();
         }

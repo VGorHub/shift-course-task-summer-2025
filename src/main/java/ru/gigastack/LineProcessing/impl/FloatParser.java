@@ -2,13 +2,15 @@ package ru.gigastack.LineProcessing.impl;
 
 import ru.gigastack.LineProcessing.TypeParser;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 public class FloatParser implements TypeParser {
     @Override
-    public Optional<Object> tryParse(String line) {
+    public Optional<BigDecimal> tryParse(String line) {
         try {
-            return Optional.of(Float.parseFloat(line));
+            BigDecimal bd = new BigDecimal(line);
+            return Optional.of(bd);
         } catch (NumberFormatException e) {
             return Optional.empty();
         }

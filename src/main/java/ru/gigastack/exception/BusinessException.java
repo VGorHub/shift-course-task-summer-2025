@@ -2,7 +2,6 @@ package ru.gigastack.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ru.gigastack.enums.BusinessExceptionErrorCode;
 
 @Getter
 @RequiredArgsConstructor
