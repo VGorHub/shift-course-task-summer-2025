@@ -1,10 +1,10 @@
-package ru.gigastack.io;
+package ru.gigastack.LineProcessing;
 
 import lombok.RequiredArgsConstructor;
-import ru.gigastack.LineProcessing.LineClassifier;
 import ru.gigastack.enums.DataType;
 import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
+import ru.gigastack.io.TypeWriters;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class LineProcessor {
         try {
             writers.write(dataType,line);
         }catch (IOException e){
-            throw new BusinessException(BusinessExceptionErrorCode.FILE_READ_ERROR,
+            throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
                     String.format("Ошибка записи под номером: %s; строка: %s", line,lineNumber),
                     e);
         }

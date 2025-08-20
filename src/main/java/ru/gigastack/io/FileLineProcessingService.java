@@ -3,6 +3,7 @@ package ru.gigastack.io;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.gigastack.LineProcessing.LineProcessor;
 import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
 
