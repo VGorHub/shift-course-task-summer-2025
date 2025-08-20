@@ -22,6 +22,10 @@ public class ApplicationRunner {
 
     public static void run(Params params) throws IOException {
         Path outputDir = Path.of(params.outputDir() == null ? "." : params.outputDir());
+
+        logger.info("Старт обработки; Выходная папка='{}', префикс='{}', append={}, файлов={}",
+                outputDir, params.prefix(), params.append(), params.inputFiles().size());
+
         try(TypeWriters writers = new TypeWriters(outputDir, params.prefix(), params.append())){
             LineClassifier lineClassifier = new LineClassifierImpl(new IntegerParser(),new FloatParser());
 
@@ -32,13 +36,14 @@ public class ApplicationRunner {
 
             for (Path in : params.inputFiles()){
                 if(!Files.isRegularFile(in)){
-                    logger.error("Пропускаем файл: "+ in);
+                    logger.warn("Не корректеный путь:{}  : не является файлом ли не луществут; Путь пропускается", in.toAbsolutePath());
                 }else {
+                    logger.info("Начата обработка файла: {}",in);
                     service.startFileLinesProcess(in);
+                    logger.info("Завершена обработка файла: {}",in);
                 }
 
             }
-
         } catch (IOException e) {
             throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
                     "Ошибка записи в файл",e);

@@ -19,7 +19,7 @@ public class Main {
             }
             ApplicationRunner.run(params);
         }catch (Exception e){
-            logger.error("Произошла не предвиденная ошибка: {}", e.getMessage());
+            logger.error("Непредвиденная ошибка приложения", e);
             System.exit(3);
         }
     }

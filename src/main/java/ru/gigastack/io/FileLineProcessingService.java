@@ -34,12 +34,11 @@ public class FileLineProcessingService {
                 }
                 lineNumber++;
             }
+            logger.debug("Всего строк прочитано: {}", lineNumber - 1);
         } catch (IOException e) {
+            logger.error("Ошибка чтения файла: {}", path, e);
             throw new BusinessException(BusinessExceptionErrorCode.FILE_READ_ERROR,
-                    String.format("Ошибка при обработке файла: %s",path),
-                    e);
-        } catch (BusinessException e){
-            throw e;
+                    String.format("Ошибка при обработке файла: %s",path), e);
         }
     }
 }

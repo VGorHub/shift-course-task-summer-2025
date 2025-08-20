@@ -1,6 +1,8 @@
 package ru.gigastack.lineProcessing;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.gigastack.enums.DataType;
 import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
@@ -10,8 +12,10 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 public class LineProcessor {
+    private final static Logger logger = LogManager.getLogger(LineProcessor.class);
     private final LineClassifier lineClassifier;
     private final TypeWriters writers;
+
 
     public void lineProcess(String line, int lineNumber) throws BusinessException {
         if (line == null || line.isBlank()) return;
@@ -21,9 +25,9 @@ public class LineProcessor {
         try {
             writers.write(dataType,line);
         }catch (IOException e){
+            logger.error("Ошибка записи строки #{}: {}", lineNumber, line, e);
             throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
-                    String.format("Ошибка записи под номером: %s; строка: %s", line,lineNumber),
-                    e);
+                    String.format("Ошибка записи под номером: %s; строка: %s",lineNumber, line), e);
         }
 
         //Сюда вставить обработку статистики сразу при записи

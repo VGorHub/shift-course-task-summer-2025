@@ -4,7 +4,7 @@ import ru.gigastack.lineProcessing.TypeParser;
 
 import java.util.Optional;
 
-public class IntegerParser implements TypeParser {
+public class IntegerParser implements TypeParser<Long> {
     @Override
     public Optional<Long> tryParse(String line) {
         try {

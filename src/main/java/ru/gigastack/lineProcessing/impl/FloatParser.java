@@ -5,7 +5,7 @@ import ru.gigastack.lineProcessing.TypeParser;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-public class FloatParser implements TypeParser {
+public class FloatParser implements TypeParser<BigDecimal> {
     @Override
     public Optional<BigDecimal> tryParse(String line) {
         try {
