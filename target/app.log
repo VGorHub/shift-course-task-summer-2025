@@ -1,0 +1,6 @@
+2025-08-20T12:39:50,213 INFO  ru.gigastack.ApplicationRunner : - Старт обработки; Выходная папка='out', префикс='test_', append=false, файлов=2
+2025-08-20T12:39:50,214 WARN  ru.gigastack.ApplicationRunner : - Не корректеный путь:/Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/input1.txt  : не является файлом ли не луществут; Путь пропускается
+2025-08-20T12:39:50,214 WARN  ru.gigastack.ApplicationRunner : - Не корректеный путь:/Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/input2.txt  : не является файлом ли не луществут; Путь пропускается
+2025-08-20T12:42:50,133 INFO  ru.gigastack.ApplicationRunner : - Старт обработки; Выходная папка='out', префикс='test_', append=false, файлов=2
+2025-08-20T12:42:50,134 WARN  ru.gigastack.ApplicationRunner : - Не корректеный путь:/Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/input1.txt  : не существут или не является файлом ; Путь пропускается
+2025-08-20T12:42:50,134 WARN  ru.gigastack.ApplicationRunner : - Не корректеный путь:/Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/input2.txt  : не существут или не является файлом ; Путь пропускается

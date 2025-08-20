@@ -36,7 +36,7 @@ public class ApplicationRunner {
 
             for (Path in : params.inputFiles()){
                 if(!Files.isRegularFile(in)){
-                    logger.warn("Не корректеный путь:{}  : не является файлом ли не луществут; Путь пропускается", in.toAbsolutePath());
+                    logger.warn("Не корректеный путь:{}  : не существут или не является файлом ; Путь пропускается", in.toAbsolutePath());
                 }else {
                     logger.info("Начата обработка файла: {}",in);
                     service.startFileLinesProcess(in);
