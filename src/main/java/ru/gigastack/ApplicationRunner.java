@@ -2,11 +2,11 @@ package ru.gigastack;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.gigastack.LineProcessing.LineClassifier;
-import ru.gigastack.LineProcessing.LineProcessor;
-import ru.gigastack.LineProcessing.impl.FloatParser;
-import ru.gigastack.LineProcessing.impl.IntegerParser;
-import ru.gigastack.LineProcessing.impl.LineClassifierImpl;
+import ru.gigastack.lineProcessing.LineClassifier;
+import ru.gigastack.lineProcessing.LineProcessor;
+import ru.gigastack.lineProcessing.impl.FloatParser;
+import ru.gigastack.lineProcessing.impl.IntegerParser;
+import ru.gigastack.lineProcessing.impl.LineClassifierImpl;
 import ru.gigastack.cli.Params;
 import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;

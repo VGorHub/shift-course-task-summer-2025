@@ -1,4 +1,4 @@
-package ru.gigastack.LineProcessing;
+package ru.gigastack.lineProcessing;
 
 import ru.gigastack.enums.DataType;
 

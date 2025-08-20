@@ -1,6 +1,6 @@
-package ru.gigastack.LineProcessing.impl;
+package ru.gigastack.lineProcessing.impl;
 
-import ru.gigastack.LineProcessing.TypeParser;
+import ru.gigastack.lineProcessing.TypeParser;
 
 import java.math.BigDecimal;
 import java.util.Optional;

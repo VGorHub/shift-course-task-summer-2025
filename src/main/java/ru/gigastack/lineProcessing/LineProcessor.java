@@ -1,4 +1,4 @@
-package ru.gigastack.LineProcessing;
+package ru.gigastack.lineProcessing;
 
 import lombok.RequiredArgsConstructor;
 import ru.gigastack.enums.DataType;
