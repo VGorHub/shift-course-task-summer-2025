@@ -16,8 +16,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 @RequiredArgsConstructor
-public class FileLineProcessingService {
-    private final static Logger logger = LogManager.getLogger(FileLineProcessingService.class);
+public class FileLineReader {
+    private final static Logger logger = LogManager.getLogger(FileLineReader.class);
     private final LineProcessor lineProcessor;
 
     public void startFileLinesProcess(Path path) throws BusinessException {

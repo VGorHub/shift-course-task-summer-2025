@@ -2,6 +2,7 @@ package ru.gigastack.app;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.gigastack.io.FileLineReader;
 import ru.gigastack.io.TypedLineWriter;
 import ru.gigastack.lineProcessing.LineClassifier;
 import ru.gigastack.lineProcessing.LineProcessor;
@@ -11,7 +12,6 @@ import ru.gigastack.lineProcessing.impl.LineClassifierImpl;
 import ru.gigastack.model.Params;
 import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
-import ru.gigastack.io.FileLineProcessingService;
 import ru.gigastack.stats.console.StatsPrinter;
 import ru.gigastack.stats.StatisticsService;
 
@@ -35,7 +35,7 @@ public class ApplicationRunner {
 
             LineProcessor lineProcessor = new LineProcessor(lineClassifier,writers, statistics);
 
-            FileLineProcessingService service = new FileLineProcessingService(lineProcessor);
+            FileLineReader reader = new FileLineReader(lineProcessor);
 
             for (Path in : params.inputFiles()){
                 if(!Files.isRegularFile(in)){
@@ -43,7 +43,7 @@ public class ApplicationRunner {
                 }else {
                     try {
                         logger.info("Начата обработка файла: {}",in);
-                        service.startFileLinesProcess(in);
+                        reader.startFileLinesProcess(in);
                         logger.info("Завершена обработка файла: {}",in);
                     } catch (BusinessException e){
                         logger.error("Файл пропущен из-за ошибки: {}", in, e);

@@ -41,7 +41,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-input1.txt
-input2.txt
-
 target
