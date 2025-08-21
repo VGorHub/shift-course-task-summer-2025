@@ -12,6 +12,7 @@ import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
 import ru.gigastack.io.FileLineProcessingService;
 import ru.gigastack.io.TypeWriters;
+import ru.gigastack.stats.impl.StatisticsService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +30,9 @@ public class ApplicationRunner {
         try(TypeWriters writers = new TypeWriters(outputDir, params.prefix(), params.append())){
             LineClassifier lineClassifier = new LineClassifierImpl(new IntegerParser(),new FloatParser());
 
-            LineProcessor lineProcessor = new LineProcessor(lineClassifier,writers);
+            StatisticsService statistics = new StatisticsService(params.statistic());
+
+            LineProcessor lineProcessor = new LineProcessor(lineClassifier,writers, statistics);
 
             FileLineProcessingService service = new FileLineProcessingService(lineProcessor);
 
