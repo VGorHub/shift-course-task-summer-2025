@@ -28,10 +28,12 @@ public class ApplicationRunner {
         logger.info("Старт обработки; Выходная папка='{}', префикс='{}', append={}, файлов={}",
                 outputDir, params.prefix(), params.append(), params.inputFiles().size());
 
+        StatisticsService statistics = new StatisticsService(params.statistic());
+
         try(TypeWriters writers = new TypeWriters(outputDir, params.prefix(), params.append())){
             LineClassifier lineClassifier = new LineClassifierImpl(new IntegerParser(),new FloatParser());
 
-            StatisticsService statistics = new StatisticsService(params.statistic());
+
 
             LineProcessor lineProcessor = new LineProcessor(lineClassifier,writers, statistics);
 
@@ -49,11 +51,11 @@ public class ApplicationRunner {
 
             }
 
-            StatsPrinter.print(statistics.rezultMap(), statistics.getMode());
-
         } catch (IOException e) {
             throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
                     "Ошибка записи в файл",e);
         }
+
+        StatsPrinter.print(statistics.rezultMap(), statistics.getMode());
     }
 }

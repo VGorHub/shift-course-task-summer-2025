@@ -23,8 +23,8 @@ public class ParamParser {
                 .toList();
 
         Params params = new Params(
-                cmd.getOptionValue("o"),
-                cmd.getOptionValue("p"),
+                cmd.getOptionValue("o", ""),
+                cmd.getOptionValue("p", ""),
                 cmd.hasOption("a"),
                 statistic,
                 paths

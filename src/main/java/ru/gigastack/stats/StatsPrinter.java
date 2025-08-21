@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class StatsPrinter {
     public static void print(Map<DataType, StatsRezult> rez, Params.Statistic mode){
-        StringBuilder sb = new StringBuilder("СТАТИСТИКА");
+        StringBuilder sb = new StringBuilder("СТАТИСТИКА\n");
         for(DataType t : DataType.values()){
             StatsRezult statsRezult = rez.get(t);
             if(statsRezult != null && statsRezult.count() != 0){

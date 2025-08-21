@@ -15,12 +15,12 @@ public class Main {
             try {
                 params = ParamParser.parseArgs(args);
             }catch (ParseException e){
-                System.exit(2);
+                System.exit(0);
             }
             ApplicationRunner.run(params);
         }catch (Exception e){
             logger.error("Непредвиденная ошибка приложения", e);
-            System.exit(3);
+            System.exit(1);
         }
     }
 }
