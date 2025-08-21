@@ -12,6 +12,7 @@ import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
 import ru.gigastack.io.FileLineProcessingService;
 import ru.gigastack.io.TypeWriters;
+import ru.gigastack.stats.StatsPrinter;
 import ru.gigastack.stats.impl.StatisticsService;
 
 import java.io.IOException;
@@ -47,6 +48,9 @@ public class ApplicationRunner {
                 }
 
             }
+
+            StatsPrinter.print(statistics.rezultMap(), statistics.getMode());
+
         } catch (IOException e) {
             throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
                     "Ошибка записи в файл",e);

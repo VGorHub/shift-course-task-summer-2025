@@ -1,0 +1,24 @@
+package ru.gigastack.stats;
+
+import ru.gigastack.cli.Params;
+import ru.gigastack.enums.DataType;
+
+import java.util.Map;
+
+public class StatsPrinter {
+    public static void print(Map<DataType, StatsRezult> rez, Params.Statistic mode){
+        StringBuilder sb = new StringBuilder("СТАТИСТИКА");
+        for(DataType t : DataType.values()){
+            StatsRezult statsRezult = rez.get(t);
+            if(statsRezult != null && statsRezult.count() != 0){
+                sb.append(t.name()).append(":count=").append(statsRezult.count());
+                if (mode == Params.Statistic.FULL){
+                    sb.append(", ").append(statsRezult.details());
+                }
+                sb.append("\n");
+            }
+        }
+        String rezultString =  sb.toString();
+        System.out.println(rezultString);
+    }
+}
