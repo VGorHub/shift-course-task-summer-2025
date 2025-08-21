@@ -5,7 +5,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.gigastack.enums.DataType;
 import ru.gigastack.exception.BusinessException;
-import ru.gigastack.exception.BusinessExceptionErrorCode;
 import ru.gigastack.io.TypeWriters;
 import ru.gigastack.stats.impl.StatisticsService;
 
@@ -29,8 +28,6 @@ public class LineProcessor {
             statistics.onLine(dataType, line);
         }catch (IOException e){
             logger.error("Ошибка записи строки #{}: {}", lineNumber, line, e);
-            throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
-                    String.format("Ошибка записи под номером: %s; строка: %s",lineNumber, line), e);
         }
     }
 }

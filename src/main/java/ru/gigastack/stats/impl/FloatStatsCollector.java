@@ -4,7 +4,6 @@ import ru.gigastack.stats.StatsCollector;
 import ru.gigastack.stats.StatsRezult;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.MathContext;
 
 public class FloatStatsCollector implements StatsCollector {

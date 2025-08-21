@@ -30,27 +30,26 @@ public class ApplicationRunner {
 
         StatisticsService statistics = new StatisticsService(params.statistic());
 
-        try(TypeWriters writers = new TypeWriters(outputDir, params.prefix(), params.append())){
+        try(TypeWriters writers = new TypeWriters(outputDir, params.prefix(), params.append())) {
             LineClassifier lineClassifier = new LineClassifierImpl(new IntegerParser(),new FloatParser());
-
-
 
             LineProcessor lineProcessor = new LineProcessor(lineClassifier,writers, statistics);
 
             FileLineProcessingService service = new FileLineProcessingService(lineProcessor);
 
-
             for (Path in : params.inputFiles()){
                 if(!Files.isRegularFile(in)){
                     logger.warn("Не корректеный путь:{}  : не существут или не является файлом ; Путь пропускается", in.toAbsolutePath());
                 }else {
-                    logger.info("Начата обработка файла: {}",in);
-                    service.startFileLinesProcess(in);
-                    logger.info("Завершена обработка файла: {}",in);
+                    try {
+                        logger.info("Начата обработка файла: {}",in);
+                        service.startFileLinesProcess(in);
+                        logger.info("Завершена обработка файла: {}",in);
+                    } catch (BusinessException e){
+                        logger.error("Файл пропущен из-за ошибки: {}", in, e);
+                    }
                 }
-
             }
-
         } catch (IOException e) {
             throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
                     "Ошибка записи в файл",e);

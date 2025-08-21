@@ -39,6 +39,7 @@ public final class TypeWriters implements AutoCloseable{
         w.write(line);
         w.newLine();
     }
+
     private OpenOption[] fileOpenOptions(boolean append){
         if(append){
             return new OpenOption[]{
