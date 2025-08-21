@@ -1,7 +1,8 @@
-package ru.gigastack.stats;
+package ru.gigastack.stats.console;
 
-import ru.gigastack.cli.Params;
-import ru.gigastack.enums.DataType;
+import ru.gigastack.model.Params;
+import ru.gigastack.model.DataType;
+import ru.gigastack.model.StatsRezult;
 
 import java.util.Map;
 

@@ -2,7 +2,7 @@ package ru.gigastack.io;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import ru.gigastack.enums.DataType;
+import ru.gigastack.model.DataType;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TypeWritersTest {
+public class TypedLineWriterTest {
     @TempDir
     Path temp;
 
     @Test
     void createFileWithPrefixAndTruncate() throws IOException{
         Path outDir = temp.resolve("out");
-        try (TypeWriters writers = new TypeWriters(outDir,"test_",false)){
+        try (TypedLineWriter writers = new TypedLineWriter(outDir,"test_",false)){
             assertFalse(Files.exists(outDir));
 
             writers.write(DataType.STRING, "asb");
@@ -39,10 +39,10 @@ public class TypeWritersTest {
         Path outDir = temp.resolve("out");
         Path strings = outDir.resolve("test_" + "strings.txt");
 
-        try (TypeWriters writers = new TypeWriters(outDir, "test_", false)) {
+        try (TypedLineWriter writers = new TypedLineWriter(outDir, "test_", false)) {
             writers.write(DataType.STRING, "first");
         }
-        try (TypeWriters writers = new TypeWriters(outDir, "test_", true)) {
+        try (TypedLineWriter writers = new TypedLineWriter(outDir, "test_", true)) {
             writers.write(DataType.STRING, "second");
         }
 

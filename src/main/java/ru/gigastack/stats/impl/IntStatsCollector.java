@@ -1,7 +1,7 @@
 package ru.gigastack.stats.impl;
 
 import ru.gigastack.stats.StatsCollector;
-import ru.gigastack.stats.StatsRezult;
+import ru.gigastack.model.StatsRezult;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

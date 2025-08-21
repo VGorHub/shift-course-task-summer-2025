@@ -1,7 +1,7 @@
 package ru.gigastack.stats.impl;
 
 import org.junit.jupiter.api.Test;
-import ru.gigastack.stats.StatsRezult;
+import ru.gigastack.model.StatsRezult;
 
 import static org.junit.jupiter.api.Assertions.*;
 

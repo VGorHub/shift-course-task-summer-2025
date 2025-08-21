@@ -1,19 +1,19 @@
-package ru.gigastack;
+package ru.gigastack.app;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.gigastack.io.TypedLineWriter;
 import ru.gigastack.lineProcessing.LineClassifier;
 import ru.gigastack.lineProcessing.LineProcessor;
 import ru.gigastack.lineProcessing.impl.FloatParser;
 import ru.gigastack.lineProcessing.impl.IntegerParser;
 import ru.gigastack.lineProcessing.impl.LineClassifierImpl;
-import ru.gigastack.cli.Params;
+import ru.gigastack.model.Params;
 import ru.gigastack.exception.BusinessException;
 import ru.gigastack.exception.BusinessExceptionErrorCode;
 import ru.gigastack.io.FileLineProcessingService;
-import ru.gigastack.io.TypeWriters;
-import ru.gigastack.stats.StatsPrinter;
-import ru.gigastack.stats.impl.StatisticsService;
+import ru.gigastack.stats.console.StatsPrinter;
+import ru.gigastack.stats.StatisticsService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,7 +30,7 @@ public class ApplicationRunner {
 
         StatisticsService statistics = new StatisticsService(params.statistic());
 
-        try(TypeWriters writers = new TypeWriters(outputDir, params.prefix(), params.append())) {
+        try(TypedLineWriter writers = new TypedLineWriter(outputDir, params.prefix(), params.append())) {
             LineClassifier lineClassifier = new LineClassifierImpl(new IntegerParser(),new FloatParser());
 
             LineProcessor lineProcessor = new LineProcessor(lineClassifier,writers, statistics);

@@ -1,10 +1,12 @@
-package ru.gigastack.stats.impl;
+package ru.gigastack.stats;
 
 import lombok.Getter;
-import ru.gigastack.cli.Params;
-import ru.gigastack.enums.DataType;
-import ru.gigastack.stats.StatsCollector;
-import ru.gigastack.stats.StatsRezult;
+import ru.gigastack.model.Params;
+import ru.gigastack.model.DataType;
+import ru.gigastack.model.StatsRezult;
+import ru.gigastack.stats.impl.FloatStatsCollector;
+import ru.gigastack.stats.impl.IntStatsCollector;
+import ru.gigastack.stats.impl.StringStatsCollector;
 
 import java.util.EnumMap;
 import java.util.Map;

@@ -2,6 +2,7 @@ package ru.gigastack.cli;
 
 import org.apache.commons.cli.ParseException;
 import org.junit.jupiter.api.Test;
+import ru.gigastack.model.Params;
 
 import java.nio.file.Path;
 import java.util.List;

@@ -3,8 +3,9 @@ package ru.gigastack;
 import org.apache.commons.cli.ParseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.gigastack.app.ApplicationRunner;
 import ru.gigastack.cli.ParamParser;
-import ru.gigastack.cli.Params;
+import ru.gigastack.model.Params;
 
 
 public class Main {

@@ -3,7 +3,7 @@ package ru.gigastack.io;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.gigastack.enums.DataType;
+import ru.gigastack.model.DataType;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -16,8 +16,8 @@ import java.util.EnumMap;
 import java.util.Map;
 
 @RequiredArgsConstructor
-public final class TypeWriters implements AutoCloseable{
-    private final static Logger logger = LogManager.getLogger(TypeWriters.class);
+public final class TypedLineWriter implements AutoCloseable{
+    private final static Logger logger = LogManager.getLogger(TypedLineWriter.class);
     private final Path outDir;
     private final String prefix;
     private final boolean append;

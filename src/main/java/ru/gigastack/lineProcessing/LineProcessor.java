@@ -3,10 +3,10 @@ package ru.gigastack.lineProcessing;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.gigastack.enums.DataType;
+import ru.gigastack.model.DataType;
 import ru.gigastack.exception.BusinessException;
-import ru.gigastack.io.TypeWriters;
-import ru.gigastack.stats.impl.StatisticsService;
+import ru.gigastack.io.TypedLineWriter;
+import ru.gigastack.stats.StatisticsService;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class LineProcessor {
     private final static Logger logger = LogManager.getLogger(LineProcessor.class);
     private final LineClassifier lineClassifier;
-    private final TypeWriters writers;
+    private final TypedLineWriter writers;
     private final StatisticsService statistics;
 
 

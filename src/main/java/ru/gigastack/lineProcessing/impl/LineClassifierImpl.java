@@ -3,7 +3,7 @@ package ru.gigastack.lineProcessing.impl;
 import lombok.RequiredArgsConstructor;
 import ru.gigastack.lineProcessing.LineClassifier;
 import ru.gigastack.lineProcessing.TypeParser;
-import ru.gigastack.enums.DataType;
+import ru.gigastack.model.DataType;
 
 import java.math.BigDecimal;
 

@@ -1,7 +1,7 @@
 package ru.gigastack.lineProcessing.impl;
 
 import org.junit.jupiter.api.Test;
-import ru.gigastack.enums.DataType;
+import ru.gigastack.model.DataType;
 import ru.gigastack.lineProcessing.TypeParser;
 
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package ru.gigastack.stats;
+package ru.gigastack.model;
 
 public record StatsRezult(
         long count,
