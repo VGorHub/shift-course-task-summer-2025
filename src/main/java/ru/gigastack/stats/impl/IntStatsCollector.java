@@ -44,9 +44,4 @@ public class IntStatsCollector implements StatsCollector {
                 .stripTrailingZeros()
                 .toPlainString();
     }
-
-    @Override
-    public boolean hasData() {
-        return false;
-    }
 }

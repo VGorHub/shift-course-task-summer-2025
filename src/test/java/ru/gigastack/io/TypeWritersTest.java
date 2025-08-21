@@ -24,11 +24,11 @@ public class TypeWritersTest {
 
             writers.write(DataType.STRING, "asb");
 
-            Path strings = outDir.resolve("test_" + "string.txt");
+            Path strings = outDir.resolve("test_" + "strings.txt");
             assertTrue(Files.exists(strings));
 
             assertFalse(Files.exists(outDir.resolve("test_" + "integers.txt")));
-            assertFalse(Files.exists(outDir.resolve("test_" + "float.txt")));
+            assertFalse(Files.exists(outDir.resolve("test_" + "floats.txt")));
         }
 
 
@@ -37,7 +37,7 @@ public class TypeWritersTest {
     @Test
     void appendModeDoesNotTruncate() throws IOException {
         Path outDir = temp.resolve("out");
-        Path strings = outDir.resolve("test_" + "string.txt");
+        Path strings = outDir.resolve("test_" + "strings.txt");
 
         try (TypeWriters writers = new TypeWriters(outDir, "test_", false)) {
             writers.write(DataType.STRING, "first");

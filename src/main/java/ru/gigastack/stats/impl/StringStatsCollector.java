@@ -31,9 +31,4 @@ public class StringStatsCollector implements StatsCollector {
 
         return new StatsRezult(count, detail);
     }
-
-    @Override
-    public boolean hasData() {
-        return count > 0;
-    }
 }

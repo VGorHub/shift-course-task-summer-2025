@@ -18,8 +18,8 @@ public class CommandLineParser {
 
         try {
             CommandLine cmd = new DefaultParser().parse(options,args);
-            if (cmd.getArgList().size() < 2){
-                throw new ParseException("Не достаточно параметров");
+            if (cmd.getArgList().size() < 1){
+                throw new ParseException("Не достаточно параметров, требуется минимум 1 файл");
             }
             return cmd;
         } catch (ParseException e) {

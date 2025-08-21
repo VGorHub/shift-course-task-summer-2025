@@ -56,8 +56,8 @@ public final class TypeWriters implements AutoCloseable{
     private String fileName(DataType dataType) {
         return switch (dataType){
             case INTEGER -> "integers.txt";
-            case FLOAT -> "float.txt";
-            case STRING -> "string.txt";
+            case FLOAT -> "floats.txt";
+            case STRING -> "strings.txt";
         };
     }
 

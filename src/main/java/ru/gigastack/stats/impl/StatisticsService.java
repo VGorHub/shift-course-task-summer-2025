@@ -31,9 +31,4 @@ public class StatisticsService {
         collectorMap.forEach((t , r ) -> rez.put(t , r.rezult()));
         return rez;
     }
-
-    public boolean hasData(DataType type){
-        return collectorMap.get(type).hasData();
-    }
-
 }

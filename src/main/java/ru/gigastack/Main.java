@@ -15,7 +15,7 @@ public class Main {
             try {
                 params = ParamParser.parseArgs(args);
             }catch (ParseException e){
-                System.exit(0);
+                System.exit(2);
             }
             ApplicationRunner.run(params);
         }catch (Exception e){
