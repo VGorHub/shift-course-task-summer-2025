@@ -6,11 +6,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class CommandLineParser {
-    private final static Logger logger = LogManager.getLogger(CommandLineParser.class);
 
     public static CommandLine parse(String[] args) throws ParseException{
 
@@ -18,12 +15,15 @@ public class CommandLineParser {
 
         try {
             CommandLine cmd = new DefaultParser().parse(options,args);
+            if (cmd.hasOption("h")) {
+                new HelpFormatter().printHelp("java [options] file1 file2 ...", options);
+                throw new HelpRequested();
+            }
             if (cmd.getArgList().size() < 1){
                 throw new ParseException("Не достаточно параметров, требуется минимум 1 файл");
             }
             return cmd;
         } catch (ParseException e) {
-            logger.error("Произошла ошибка парсинга аргументов: {}", e.getMessage());
             new HelpFormatter().printHelp("java [options] file1 file2 ...", options);
             throw e;
         }
@@ -33,11 +33,19 @@ public class CommandLineParser {
     private static Options initializeOptions(){
         Options options = new Options();
 
+        Option help = Option.builder()
+                .option("h")
+                .longOpt("help")
+                .hasArg(false)
+                .desc("Показать справку")
+                .build();
+        options.addOption(help);
+
         Option outputDir = Option.builder()
                 .option("o")
                 .longOpt("output")
                 .hasArg(true)
-                .desc("Путь до результута")
+                .desc("Путь до результата")
                 .build();
         options.addOption(outputDir);
 
@@ -61,7 +69,7 @@ public class CommandLineParser {
                 .option("s")
                 .longOpt("short")
                 .hasArg(false)
-                .desc("Краткая Стистика")
+                .desc("Краткая Статистика")
                 .build();
         options.addOption(shortStatistic);
 

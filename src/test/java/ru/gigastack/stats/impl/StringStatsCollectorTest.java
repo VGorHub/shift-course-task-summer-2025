@@ -1,7 +1,7 @@
 package ru.gigastack.stats.impl;
 
 import org.junit.jupiter.api.Test;
-import ru.gigastack.model.StatsRezult;
+import ru.gigastack.model.StatsResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +15,7 @@ class StringStatsCollectorTest {
         c.accept("bbb");
         c.accept("cc");
 
-        StatsRezult r = c.rezult();
+        StatsResult r = c.result();
         assertEquals(3, r.count());
         assertEquals("minLen=1, maxLen=3", r.details());
     }

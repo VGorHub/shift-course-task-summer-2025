@@ -3,7 +3,7 @@ package ru.gigastack.stats;
 import lombok.Getter;
 import ru.gigastack.model.Params;
 import ru.gigastack.model.DataType;
-import ru.gigastack.model.StatsRezult;
+import ru.gigastack.model.StatsResult;
 import ru.gigastack.stats.impl.FloatStatsCollector;
 import ru.gigastack.stats.impl.IntStatsCollector;
 import ru.gigastack.stats.impl.StringStatsCollector;
@@ -28,9 +28,9 @@ public class StatisticsService {
         collectorMap.get(type).accept(line);
     }
 
-    public Map<DataType, StatsRezult> rezultMap(){
-        Map<DataType, StatsRezult> rez = new EnumMap<>(DataType.class);
-        collectorMap.forEach((t , r ) -> rez.put(t , r.rezult()));
+    public Map<DataType, StatsResult> resultMap(){
+        Map<DataType, StatsResult> rez = new EnumMap<>(DataType.class);
+        collectorMap.forEach((t , r ) -> rez.put(t , r.result()));
         return rez;
     }
 }

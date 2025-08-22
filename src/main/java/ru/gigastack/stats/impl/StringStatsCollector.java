@@ -1,7 +1,7 @@
 package ru.gigastack.stats.impl;
 
 import ru.gigastack.stats.StatsCollector;
-import ru.gigastack.model.StatsRezult;
+import ru.gigastack.model.StatsResult;
 
 public class StringStatsCollector implements StatsCollector {
     private long count = 0;
@@ -22,13 +22,13 @@ public class StringStatsCollector implements StatsCollector {
     }
 
     @Override
-    public StatsRezult rezult() {
+    public StatsResult result() {
         if (count == 0 ){
-            return new StatsRezult(0,"");
+            return new StatsResult(0,"");
         }
 
         String detail = "minLen=%s, maxLen=%s".formatted(minLen, maxLen);
 
-        return new StatsRezult(count, detail);
+        return new StatsResult(count, detail);
     }
 }

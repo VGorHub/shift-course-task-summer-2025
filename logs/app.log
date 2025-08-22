@@ -1,0 +1,49 @@
+2025-08-22T12:06:39,758 INFO  ru.gigastack.app.ApplicationRunner - Старт обработки; Выходная папка='/var/folders/rf/3cjr9pbx0vb1d55vcqwrfq800000gn/T/junit9512410020281157132/out', префикс='test_', append=false, файлов=1
+2025-08-22T12:06:39,763 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: /var/folders/rf/3cjr9pbx0vb1d55vcqwrfq800000gn/T/junit9512410020281157132/input.txt
+2025-08-22T12:06:39,764 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для INTEGER: /var/folders/rf/3cjr9pbx0vb1d55vcqwrfq800000gn/T/junit9512410020281157132/out/test_integers.txt
+2025-08-22T12:06:39,764 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для FLOAT: /var/folders/rf/3cjr9pbx0vb1d55vcqwrfq800000gn/T/junit9512410020281157132/out/test_floats.txt
+2025-08-22T12:06:39,765 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для STRING: /var/folders/rf/3cjr9pbx0vb1d55vcqwrfq800000gn/T/junit9512410020281157132/out/test_strings.txt
+2025-08-22T12:06:39,765 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 6
+2025-08-22T12:06:39,765 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: /var/folders/rf/3cjr9pbx0vb1d55vcqwrfq800000gn/T/junit9512410020281157132/input.txt
+2025-08-22T12:06:39,765 DEBUG ru.gigastack.io.TypedLineWriter - Файл для INTEGER закрыт
+2025-08-22T12:06:39,765 DEBUG ru.gigastack.io.TypedLineWriter - Файл для FLOAT закрыт
+2025-08-22T12:06:39,765 DEBUG ru.gigastack.io.TypedLineWriter - Файл для STRING закрыт
+2025-08-22T12:09:47,802 INFO  ru.gigastack.app.ApplicationRunner - Старт обработки; Выходная папка='out', префикс='', append=false, файлов=2
+2025-08-22T12:09:47,804 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: input/input1.txt
+2025-08-22T12:09:47,807 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для STRING: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/strings.txt
+2025-08-22T12:09:47,807 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для FLOAT: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/floats.txt
+2025-08-22T12:09:47,808 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 2
+2025-08-22T12:09:47,808 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: input/input1.txt
+2025-08-22T12:09:47,808 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: input/input2.txt
+2025-08-22T12:09:47,808 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для INTEGER: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/integers.txt
+2025-08-22T12:09:47,808 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 2
+2025-08-22T12:09:47,809 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: input/input2.txt
+2025-08-22T12:09:47,809 DEBUG ru.gigastack.io.TypedLineWriter - Файл для INTEGER закрыт
+2025-08-22T12:09:47,809 DEBUG ru.gigastack.io.TypedLineWriter - Файл для FLOAT закрыт
+2025-08-22T12:09:47,809 DEBUG ru.gigastack.io.TypedLineWriter - Файл для STRING закрыт
+2025-08-22T12:24:09,976 INFO  ru.gigastack.app.ApplicationRunner - Старт обработки; Выходная папка='out', префикс='', append=false, файлов=2
+2025-08-22T12:24:09,978 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: input/input1.txt
+2025-08-22T12:24:09,982 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для STRING: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/strings.txt
+2025-08-22T12:24:09,982 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для INTEGER: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/integers.txt
+2025-08-22T12:24:09,982 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 2
+2025-08-22T12:24:09,983 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: input/input1.txt
+2025-08-22T12:24:09,983 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: input/input2.txt
+2025-08-22T12:24:09,983 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для FLOAT: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/floats.txt
+2025-08-22T12:24:09,983 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 2
+2025-08-22T12:24:09,983 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: input/input2.txt
+2025-08-22T12:24:09,984 DEBUG ru.gigastack.io.TypedLineWriter - Файл для INTEGER закрыт
+2025-08-22T12:24:09,984 DEBUG ru.gigastack.io.TypedLineWriter - Файл для FLOAT закрыт
+2025-08-22T12:24:09,984 DEBUG ru.gigastack.io.TypedLineWriter - Файл для STRING закрыт
+2025-08-22T12:28:43,919 INFO  ru.gigastack.app.ApplicationRunner - Старт обработки; Выходная папка='out', префикс='', append=false, файлов=2
+2025-08-22T12:28:43,921 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: input/input1.txt
+2025-08-22T12:28:43,924 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для STRING: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/strings.txt
+2025-08-22T12:28:43,925 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для INTEGER: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/integers.txt
+2025-08-22T12:28:43,925 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 2
+2025-08-22T12:28:43,925 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: input/input1.txt
+2025-08-22T12:28:43,925 INFO  ru.gigastack.app.ApplicationRunner - Начата обработка файла: input/input2.txt
+2025-08-22T12:28:43,926 INFO  ru.gigastack.io.TypedLineWriter - Открыл файл для FLOAT: /Users/vgor/Programming/Projects/shiftCourseTaskSummer2025/out/floats.txt
+2025-08-22T12:28:43,926 DEBUG ru.gigastack.io.FileLineReader - Всего строк прочитано: 2
+2025-08-22T12:28:43,926 INFO  ru.gigastack.app.ApplicationRunner - Завершена обработка файла: input/input2.txt
+2025-08-22T12:28:43,926 DEBUG ru.gigastack.io.TypedLineWriter - Файл для INTEGER закрыт
+2025-08-22T12:28:43,926 DEBUG ru.gigastack.io.TypedLineWriter - Файл для FLOAT закрыт
+2025-08-22T12:28:43,927 DEBUG ru.gigastack.io.TypedLineWriter - Файл для STRING закрыт

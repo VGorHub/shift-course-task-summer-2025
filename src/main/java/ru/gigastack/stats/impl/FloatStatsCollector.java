@@ -1,7 +1,7 @@
 package ru.gigastack.stats.impl;
 
 import ru.gigastack.stats.StatsCollector;
-import ru.gigastack.model.StatsRezult;
+import ru.gigastack.model.StatsResult;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -32,14 +32,14 @@ public class FloatStatsCollector implements StatsCollector {
     }
 
     @Override
-    public StatsRezult rezult() {
+    public StatsResult result() {
         if (count == 0 ){
-            return new StatsRezult(0,"");
+            return new StatsResult(0,"");
         }
 
         BigDecimal avg = sum.divide(BigDecimal.valueOf(count), MathContext.DECIMAL64).stripTrailingZeros();
         String detail = String.format("min=%s, max=%s, sum=%s, avg=%s", min, max, sum, avg);
 
-        return new StatsRezult(count,detail);
+        return new StatsResult(count,detail);
     }
 }

@@ -6,10 +6,11 @@ import ru.gigastack.lineProcessing.TypeParser;
 import ru.gigastack.model.DataType;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @RequiredArgsConstructor
 public class LineClassifierImpl implements LineClassifier {
-    private final TypeParser<Long> intParser;
+    private final TypeParser<BigInteger> intParser;
     private final TypeParser<BigDecimal> floatParser;
 
     @Override

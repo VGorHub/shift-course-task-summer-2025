@@ -22,7 +22,7 @@ import java.nio.file.Path;
 public class ApplicationRunner {
     static final Logger logger = LogManager.getLogger(ApplicationRunner.class);
 
-    public static void run(Params params) throws IOException {
+    public static void run(Params params) throws BusinessException {
         Path outputDir = Path.of(params.outputDir() == null ? "." : params.outputDir());
 
         logger.info("Старт обработки; Выходная папка='{}', префикс='{}', append={}, файлов={}",
@@ -39,7 +39,7 @@ public class ApplicationRunner {
 
             for (Path in : params.inputFiles()){
                 if(!Files.isRegularFile(in)){
-                    logger.warn("Не корректеный путь:{}  : не существут или не является файлом ; Путь пропускается", in.toAbsolutePath());
+                    logger.warn("Пропуск: {} — не существует или не файл", in.toAbsolutePath());
                 }else {
                     try {
                         logger.info("Начата обработка файла: {}",in);
@@ -51,10 +51,10 @@ public class ApplicationRunner {
                 }
             }
         } catch (IOException e) {
-            throw new BusinessException(BusinessExceptionErrorCode.FILE_WRITE_ERROR,
-                    "Ошибка записи в файл",e);
+            throw new BusinessException(BusinessExceptionErrorCode.FILE_ERROR,
+                    "Ошибка при работе с файлами",e);
         }
 
-        StatsPrinter.print(statistics.rezultMap(), statistics.getMode());
+        StatsPrinter.print(statistics.resultMap(), statistics.getMode());
     }
 }

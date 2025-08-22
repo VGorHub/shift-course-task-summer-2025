@@ -1,8 +1,8 @@
 package ru.gigastack.stats;
 
-import ru.gigastack.model.StatsRezult;
+import ru.gigastack.model.StatsResult;
 
 public interface StatsCollector {
     void accept(String line);
-    StatsRezult rezult();
+    StatsResult result();
 }

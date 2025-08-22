@@ -1,6 +1,6 @@
 package ru.gigastack.model;
 
-public record StatsRezult(
+public record StatsResult(
         long count,
         String details
 ) {

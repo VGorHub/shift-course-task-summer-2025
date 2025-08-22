@@ -2,13 +2,15 @@ package ru.gigastack.lineProcessing.impl;
 
 import ru.gigastack.lineProcessing.TypeParser;
 
+import java.math.BigInteger;
 import java.util.Optional;
 
-public class IntegerParser implements TypeParser<Long> {
+public class IntegerParser implements TypeParser<BigInteger> {
     @Override
-    public Optional<Long> tryParse(String line) {
+    public Optional<BigInteger> tryParse(String line) {
         try {
-            return Optional.of(Long.parseLong(line));
+            BigInteger bi = new BigInteger(line);
+            return Optional.of(bi);
         } catch (NumberFormatException e) {
             return Optional.empty();
         }

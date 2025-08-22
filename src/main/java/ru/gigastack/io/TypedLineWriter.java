@@ -44,12 +44,14 @@ public final class TypedLineWriter implements AutoCloseable{
         if(append){
             return new OpenOption[]{
                     StandardOpenOption.CREATE,
-                    StandardOpenOption.APPEND
+                    StandardOpenOption.APPEND,
+                    StandardOpenOption.WRITE
             };
         }else {
             return new OpenOption[]{
                     StandardOpenOption.CREATE,
-                    StandardOpenOption.TRUNCATE_EXISTING
+                    StandardOpenOption.TRUNCATE_EXISTING,
+                    StandardOpenOption.WRITE
             };
         }
     }
