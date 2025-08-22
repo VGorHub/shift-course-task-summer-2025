@@ -1,4 +1,4 @@
-package ru.gigastack.cli;
+package ru.gigastack.model;
 
 import java.nio.file.Path;
 import java.util.List;

@@ -1,0 +1,54 @@
+package ru.gigastack.io;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import ru.gigastack.model.DataType;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TypedLineWriterTest {
+    @TempDir
+    Path temp;
+
+    @Test
+    void createFileWithPrefixAndTruncate() throws IOException{
+        Path outDir = temp.resolve("out");
+        try (TypedLineWriter writers = new TypedLineWriter(outDir,"test_",false)){
+            assertFalse(Files.exists(outDir));
+
+            writers.write(DataType.STRING, "asb");
+
+            Path strings = outDir.resolve("test_" + "strings.txt");
+            assertTrue(Files.exists(strings));
+
+            assertFalse(Files.exists(outDir.resolve("test_" + "integers.txt")));
+            assertFalse(Files.exists(outDir.resolve("test_" + "floats.txt")));
+        }
+
+
+    }
+
+    @Test
+    void appendModeDoesNotTruncate() throws IOException {
+        Path outDir = temp.resolve("out");
+        Path strings = outDir.resolve("test_" + "strings.txt");
+
+        try (TypedLineWriter writers = new TypedLineWriter(outDir, "test_", false)) {
+            writers.write(DataType.STRING, "first");
+        }
+        try (TypedLineWriter writers = new TypedLineWriter(outDir, "test_", true)) {
+            writers.write(DataType.STRING, "second");
+        }
+
+        var content = Files.readAllLines(strings);
+        assertEquals(2, content.size());
+        assertEquals("first", content.get(0));
+        assertEquals("second", content.get(1));
+    }
+}

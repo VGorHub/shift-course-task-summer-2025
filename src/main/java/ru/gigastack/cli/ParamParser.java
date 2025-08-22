@@ -2,6 +2,7 @@ package ru.gigastack.cli;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.ParseException;
+import ru.gigastack.model.Params;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,8 +24,8 @@ public class ParamParser {
                 .toList();
 
         Params params = new Params(
-                cmd.getOptionValue("o"),
-                cmd.getOptionValue("p"),
+                cmd.getOptionValue("o", "."),
+                cmd.getOptionValue("p", ""),
                 cmd.hasOption("a"),
                 statistic,
                 paths
